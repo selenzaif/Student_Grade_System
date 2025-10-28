@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student-Course List</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 20px 0;
+        }
+        h2 {
+            text-align: center;
+            color: #4a4a4a;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 900px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        th {
+            background-color: #6e5fa0;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        tr:hover {
+            background-color: #f0e9ff;
+            transition: background-color 0.3s ease;
+        }
+        @media (max-width: 600px) {
+            table, th, td {
+                font-size: 0.9rem;
+            }
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Courses and Teachers</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Course</th>
+                <th>Teacher</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for enrollment in enrollments %}
+            <tr>
+                <td>{{ enrollment.student.name }}</td>
+                <td>{{ enrollment.course.name }}</td>
+                <td>{{ enrollment.course.teacher.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+

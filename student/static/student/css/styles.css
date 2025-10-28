@@ -1,0 +1,13 @@
+select {
+  background-color: lightblue; /* Arka plan rengi */
+  color:purple;             /* Yazı rengi */
+  border: 1px solid #333;      /* Kenarlık */
+  padding: 5px;
+  font-size: 16px;
+}
+.course_student_list th{
+    color: blueviolet;
+}
+.course_student_list select{
+    background-color: blueviolet;
+}

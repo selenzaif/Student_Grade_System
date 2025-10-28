@@ -1,0 +1,50 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f4f8;">
+  <div>
+    <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #2c3e50; margin-bottom: 25px; text-align: center;">
+      Teacher Login
+    </h2>
+
+    {% if error %}
+      <p style="color: #e74c3c; font-weight: 700; margin-bottom: 15px; text-align: center;">
+        {{ error }}
+      </p>
+    {% endif %}
+
+    <form method="post" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 350px; background: #f9fafb; padding: 25px 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+      {% csrf_token %}
+
+      <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600; color: #34495e;">Name:</label>
+      <input
+        id="name"
+        type="text"
+        name="name"
+        placeholder="Enter your name"
+        style="width: 100%; padding: 10px 12px; margin-bottom: 20px; border: 1.5px solid #ccc; border-radius: 6px; font-size: 15px; transition: border-color 0.3s;"
+        onfocus="this.style.borderColor='#2980b9'"
+        onblur="this.style.borderColor='#ccc'"
+        required
+      >
+
+      <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600; color: #34495e;">Email:</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        style="width: 100%; padding: 10px 12px; margin-bottom: 25px; border: 1.5px solid #ccc; border-radius: 6px; font-size: 15px; transition: border-color 0.3s;"
+        onfocus="this.style.borderColor='#2980b9'"
+        onblur="this.style.borderColor='#ccc'"
+        required
+      >
+
+      <button
+        type="submit"
+        style="width: 100%; padding: 12px 0; background-color: #2980b9; color: white; font-weight: 700; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; transition: background-color 0.3s ease;"
+        onmouseover="this.style.backgroundColor='#1c5980'"
+        onmouseout="this.style.backgroundColor='#2980b9'"
+      >
+        LOGİN
+      </button>
+    </form>
+  </div>
+</div>

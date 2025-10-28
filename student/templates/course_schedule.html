@@ -1,0 +1,62 @@
+<h2 class="text-center my-4 font-weight-bold">📅 Course Schedule</h2>
+
+<div class="table-wrapper" style="display: flex; justify-content: center; margin-top: 20px;">
+  <div class="table-responsive w-auto">
+    <table border="2" cellspacing="0" cellpadding="8" style="border-collapse: collapse; border-color: #343a40; width: 80%; margin: auto; font-size: 1.5rem;">
+      <thead style="background-color: #343a40; color: white;">
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col">Course</th>
+          <th scope="col">Teacher</th>
+          <th scope="col">Start Time</th>
+          <th scope="col">End Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for day, lessons in schedule_by_day.items %}
+          {% if lessons %}
+            {% for lesson in lessons %}
+              <tr>
+                {% if forloop.first %}
+                  <td rowspan="{{ lessons|length }}" class="align-middle font-weight-bold text-uppercase bg-light text-dark">{{ day }}</td>
+                {% endif %}
+                <td>{{ lesson.course.name }}</td>
+                <td>{{ lesson.teacher.name }}</td>
+                <td>{{ lesson.start_time|time:"H:i" }}</td>
+                <td>{{ lesson.end_time|time:"H:i" }}</td>
+              </tr>
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td class="font-weight-bold text-uppercase">{{ day }}</td>
+              <td colspan="4" class="text-muted text-center">No Class</td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="/admin/student/" style="text-decoration: none;">
+        <button 
+          type="button" 
+          style="
+            background-color: #6e5fa0; 
+            color: white; 
+            font-size: 18px; 
+            padding: 15px 40px; 
+            border: none; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+          "
+          onmouseover="this.style.backgroundColor='#574b7a'"
+          onmouseout="this.style.backgroundColor='#6e5fa0'"
+        >
+          Go to Adding Page
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
